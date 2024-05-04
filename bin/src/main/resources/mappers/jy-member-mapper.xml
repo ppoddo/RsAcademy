@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="jyMemberMapper">
+
+	<select id="selectMember" resultType="Member">
+		select *
+		from member
+		where
+		MB_ID = #{string} and MB_STATUS='Y'
+	</select>
+
+	<select id="idCheck" resultType="_int">
+		select count(*)
+		from member
+		where
+		MB_ID = #{id} and MB_STATUS='Y'
+	</select>
+
+	<insert id="enroll">
+		insert into member
+		values
+		(#{mbId},#{mbPwd},#{mbName},#{mbEmail},#{mbBirth},#{mbTel},#{mbIsAdmin},#{mbLevel},default,#{mbAddress})
+	</insert>
+
+	<select id="selectClassList" resultType="ClassList">
+		SELECT *
+		FROM class_list cl
+		JOIN classes ot ON cl.cs_code = ot.cl_no
+		WHERE cl.cs_id = #{mbId}
+	</select>
+	
+	<update id="classCancle">
+		update class_list
+		set CS_STATUS = #{CsStatus}	
+		where CS_ID = #{Id} and CS_CODE = #{CsCode}
+	</update>
+
+</mapper>
+
