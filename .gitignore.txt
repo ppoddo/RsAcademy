@@ -1,0 +1,11 @@
+.idea/
+
+.metadata/
+
+target/
+
+log4j.xml
+
+bin/
+
+root-context.xml
