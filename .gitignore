@@ -76,4 +76,12 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+### STS ###
+log4j.xml
+
+bin/
+
+root-context.xml
+
 # End of https://www.toptal.com/developers/gitignore/api/react,macos,windows
